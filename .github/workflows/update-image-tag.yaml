@@ -1,4 +1,4 @@
-name: Update Image Tag [Remotely Triggered]
+name: Automated Image Update
 
 on:
   push:
