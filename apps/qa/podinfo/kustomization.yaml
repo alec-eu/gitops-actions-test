@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base/podinfo
+images:
+- name: ghcr.io/stefanprodan/podinfo
+  newName: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "qa:bank-service:name"}
+  newTag: 6.2.0 # {"$imagepolicy": "qa:bank-service:tag"}
