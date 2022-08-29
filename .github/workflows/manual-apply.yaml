@@ -15,13 +15,20 @@ on:
         type: environment
         required: true
 jobs:
-  Deploy-Image-Tag:
+  Validate-Input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate service name exists
+        run: echo 'Ensuring no typos and image tag exists'
+      - name: Validate image tag exists
+        run: echo 'Ensuring no typos and image tag exists'
+
+  Deploy-Image:
     environment:
       name: ${{ inputs.environment }}
     runs-on: ubuntu-latest
+    needs: [Validate-Input]
     steps:
-      - name: Validate service name and image tag
-        run: echo 'Ensuring no typos and image tag exists'
       - name: Update image tag
         run: |
           echo LEVEL: ${{ inputs.service }}
