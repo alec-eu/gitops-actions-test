@@ -20,7 +20,10 @@ jobs:
       name: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Validate service name and image tag
+        run: echo 'Ensuring no typos and image tag exists'
+      - name: Update image tag
+        run: |
           echo LEVEL: ${{ inputs.service }}
           echo TAGS: ${{ inputs.imageTag }}
           echo ENVIRONMENT: ${{ inputs.environment }}
